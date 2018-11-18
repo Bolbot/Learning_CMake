@@ -1,0 +1,45 @@
+Adding non-empty element to non-empty list:
+	Adding 'trois' to list 'un;deux'
+	Result: 'un;deux;trois' (length is 3)
+
+	Adding 'trois' to list 'un;deux;trois'
+	Result: 'un;deux;trois;trois' (length is 4)
+
+	Adding 'trois' to list 'un;deux;trois;trois'
+	Result: 'un;deux;trois;trois;trois' (length is 5)
+
+	Adding 'trois' to list 'un;deux;trois;trois;trois'
+	Result: 'un;deux;trois;trois;trois;trois' (length is 6)
+
+Adding ''empty'' element to non-empty list:
+	Adding ' ' to list 'uno;dos'
+	Result: 'uno;dos; ' (length is 3)
+
+	Adding ' ' to list 'uno;dos; '
+	Result: 'uno;dos; ; ' (length is 4)
+
+	Adding ' ' to list 'uno;dos; ; '
+	Result: 'uno;dos; ; ; ' (length is 5)
+
+	Adding ' ' to list 'uno;dos; ; ; '
+	Result: 'uno;dos; ; ; ; ' (length is 6)
+
+Didn't work the way CGold showed in their tutorial. Has to be space in element so that not really an empty one.
+
+
+Adding empty element to empty list:
+	Adding '' to list ''
+	Result: '' (length is 0)
+
+	Adding '' to list ''
+	Result: '' (length is 0)
+
+	Adding '' to list ''
+	Result: '' (length is 0)
+
+	Adding '' to list ''
+	Result: '' (length is 0)
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/whera/c_cpp/concurrency/exam/likbez/Cmake/TheHitchickersGuide/7_variables/_builds

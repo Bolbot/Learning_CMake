@@ -1,0 +1,30 @@
+cmake_minimum_required(VERSION 2.8)
+project(foo NONE)
+
+function(set_un_globally)
+	message("	Un (plain) before = ${un}")
+	set(un "7531")
+	message("	Un (plain) after = ${un}")
+endfunction()
+
+function(set_deux_globally)
+	message("		Deux (CACHE) before = ${deux}")
+	set(deux "2468" CACHE STRING "")
+	message("		Deux (CACHE) after = ${deux}")
+endfunction()
+
+function(set_trois_globally)
+	message("			Trois (CACHE ... FORCE) before = ${trois}")
+	set(trois "99" CACHE STRING "" FORCE)
+	message("			Trois (CACHE ... FORCE) after = ${trois}")
+endfunction()
+
+set(un "1111")
+set(deux "2222")
+set(trois "3333")
+
+message("Before set gobally	un = ${un}	deux = ${deux}	trois = ${trois}")
+set_un_globally()
+set_deux_globally()
+set_trois_globally()
+message("After set globally	un = ${un}	deux = ${deux}	trois = ${trois}")

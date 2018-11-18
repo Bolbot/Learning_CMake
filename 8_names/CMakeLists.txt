@@ -1,0 +1,61 @@
+cmake_minimum_required(VERSION 2.8)
+project(foo NONE)
+
+set(a "1")
+set(b "2")
+set(aB "3")
+
+set(A "12")
+set(B "34")
+set(Ab "56")
+
+set(ab "000")
+set(AB "111")
+
+message("a = '${a}'	b = '${b}'	A = '${A}'	B = '${B}'")
+message("aB = '${aB}'	ab = '${ab}'	Ab = '${Ab}'	AB = '${AB}'")
+
+set("a b" "101010")
+set("a&b" "202020")
+set("a?" "1234")
+set("/usr/bin/bash" "666")
+set("C:\\" "22220")
+set(" " "007")
+
+function(print_name varname)
+	message("Name '${varname}' stands for value '${${varname}}'")
+endfunction()
+
+message("Why not printing via function? Let's go.")
+print_name("a")
+print_name("ab")
+print_name("a b")
+print_name("a&b")
+print_name("a?")
+print_name("/usr/bin/bash")
+print_name("C:\\")
+print_name(" ")
+
+set(un "Starts and ends from quote")
+set(deux Starts-"Not from quote ends with quote")
+set(trois "Starts from quote but"-ends_not)
+set(quatre starts"not from quote ends"also)
+set("1-4" x"un;deux;trois;quatre;1-4")
+
+message("Now we'll use kinda foreach. But first some trivial check")
+message("Next four from function:")
+print_name(un)
+print_name(deux)
+print_name(trois)
+print_name(quatre)
+
+message("Now using that foreach:")
+foreach(x ${1-4})
+	message("    '${x}'")
+endforeach()
+
+message("		again now via funcion:")
+message("1-4 =")
+foreach(x ${1-4})
+	print_name(${x})
+endforeach()
